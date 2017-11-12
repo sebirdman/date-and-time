@@ -3,6 +3,8 @@
  */
 (function (global) {
     'use strict';
+    
+    const require_method = require;
 
     var date = {},
         lang = 'en',
@@ -284,8 +286,8 @@
      */
     date.locale = function (code) {
         if (code) {
-            if (code !== 'en' && typeof require === 'function' && global) {
-                require('./locale/' + code);
+            if (code !== 'en' && typeof require_method === 'function' && global) {
+                require_method('./locale/' + code);
             }
             lang = code;
         }
